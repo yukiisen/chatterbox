@@ -8,6 +8,16 @@ It sucks now when I see it but I'll share it anyway.
 
 **Please tell me if any file is missing.**
 
+**This project uses:**
+- ```socket.io``` for websocket management
+- ```express``` because it's express
+- ```mysql``` because I use windows 7
+
+## Feautures:
+- real-time messaging
+- post and comment on people's posts
+- that's all
+
 ## Setup
 - first clone the repository.
 - do the instructions
@@ -43,7 +53,7 @@ sudo node server.js DBusername host
 ```
 
 ## Notes:
-- I don't take responsibility if this bad code ends your career
+- I won't take responsibility if this bad code ends your career.
 - the default port is ```80```
 - the server runs on ```http``` only
 - the default host is (obviously) ```localhost```
