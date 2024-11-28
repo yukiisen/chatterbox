@@ -37,11 +37,23 @@ run DBusername host
 # linux
 export DBPASS=mysql_server_password
 export PORT=server_port
-node server.js DBusername host
+sudo node server.js DBusername host
 ```
 
 ## Notes:
 - I don't take responsibility if this bad code ends your career
-- the default port is 80
-- the server runs on http only
-- the default host is (obviously) localhost
+- the default port is ```80```
+- the server runs on ```http``` only
+- the default host is (obviously) ```localhost```
+
+## Requirements:
+I made this shit on windows 7 service pack 0 so It'll definitely work on a piece of cake.
+
+Requires:
+NodeJs: 12.x.x
+MySQL server: 5.x.x
+
++30 years lifespan.
+A strong heart so you don't log out of life after seeing the code.
+
+Check My twitter on: (Yuki)[https://x.com/notarchivist]
