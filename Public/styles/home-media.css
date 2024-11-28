@@ -1,0 +1,59 @@
+@media screen and (max-width: 767px) {
+    .chatlist{
+        display: flex;
+        width: 100%;
+        /*border: 1px blue solid;*/
+        height: 100%;
+        overflow: auto;
+        padding: 10px 5px;
+    }
+    .main{
+        display: none;
+    }
+    .chatlist .title{
+        font-size: 55px;
+        margin-left: 5px;
+    }
+    .chatlist .usersOn a .pfp{
+        width: 55px;
+        height: 55px;
+    }
+    /*.chatlist .usersOn{
+        border-bottom: 1px solid #333;
+    }*/
+    .mid{
+        font-size: 24px;
+    }
+    .chatlist .chat{
+        padding: 10px 5px;
+    }
+    .chatlist .chat:last-child{
+        border-bottom: #333 solid 1px;
+    }
+    .on{
+        border-left-color: transparent;
+    }
+    .chatlist .chat:hover{
+        background-color: transparent;
+    }
+    .messages{
+        overflow: visible;
+    }
+    .online, .top, .msgs > .mid{
+        margin: 0;
+    }
+    .nav{
+        display: flex;
+    }
+    body{
+        height: 90%;
+    }
+    .chat .name{
+        font-size: 26px;
+        /*font-weight: 800;*/
+        padding-bottom: 5px;
+    }
+    /*.data *{
+        font-size: 20px;
+    }*/
+}

@@ -1,0 +1,389 @@
+.main{
+    background-color: #212121;
+}
+.pfpic{
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+}
+.piccon{
+    position: relative;
+    top: 99px;
+    left: 5%;
+    height: 200px;
+    width: 200px;
+    border: #212121 solid 6px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile{
+    width: 73%;
+    overflow: auto;
+    align-items: center;
+}
+.pics{
+    background-image: url('../pics/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+.fill{
+    height: 91%;
+}
+.fill .container{
+    flex-direction: column;
+    border-left: 1px solid #333;
+    padding: 15px;
+}
+.profile .info{
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 91%;
+}
+.profile .title{
+    font-size: 60px;
+}
+.profile .large{
+    position: relative;
+    bottom: 20px;
+}
+.info button{
+    width: 80%;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0;
+}
+.info > div{
+    display: flex;
+    flex-direction: column;
+}
+.info .buttons{
+    width: 40%;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+}
+.info > .data{
+    width: 60%;
+}
+.suggests > span{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.profile .statics{
+    display: flex;
+    margin-left: 200px;
+    padding: 25px 30px 10px 0;
+    /*position: relative;
+    right: 90px;*/
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    user-select: none;
+}
+.profile .statics div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32%;
+    border-left: solid #aaa 2px;
+}
+.profile .statics div *{
+    position: relative;
+    top: 1px;
+    font-size: 31px;
+}
+.statics .static:first-child{
+    border: none;
+}
+
+.account .pfpcontainer{
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
+}
+.account span{
+    font-size: 28px;
+}
+.account, .accin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.account{
+    padding: 8px 10px;
+    margin: 3px 0;
+    transition-duration: 300ms;
+    border-radius: 8px;
+}
+.account:hover{
+    background-color: #222;
+}
+.account button{
+    width: 30%;
+}
+.suggests{
+    display: flex;
+    width: 27%;
+    background-color: #171717;
+    overflow: auto;
+    
+}
+.search{
+    border-bottom: 1px solid #333;
+}
+
+.profile .connect .svg{
+    width: 45px;
+}
+.profile .connect a{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    direction: ltr;
+    width: 35%;
+}
+.profile .connect{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: space-between;
+    direction: rtl;
+}
+
+.editpro{
+    max-height: 90%;
+    overflow: auto;
+    padding: 10px 25px;
+}
+
+
+.editpro .card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 2px solid #333;
+}
+.editpro .form{
+    flex-direction: column;
+    align-items: center;
+}
+.editpro .form .accinput{
+    width: 90%;
+    text-align: center;
+    padding: 3px;
+    border-radius: 10px;
+}
+.editpro .card .picture{
+    width: 180px;
+    height: 180px;
+    /*background-image: url(../pics/tmp.jpg);*/
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.editpro .card .svg-mid{
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.8);
+    transition-duration: 300ms;
+}
+.editpro .card .picture:hover .svg-mid{
+    display: block;
+}
+.editpro .card .cover{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    /*background-image: url(../pics/banner.jpg);*/
+}
+.editpro .save button{
+    width: 250px;
+}
+
+.followerslist{
+    width: 24%;
+    min-width: 270px;
+    padding: 10px;
+    height: 55%;
+}
+.followerslist .pfpcontainer{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.followerslist ul{
+    list-style-type: none;
+    border-top: #333 1px solid;
+    margin-top: 5px;
+    overflow: auto;
+}
+.followerslist li{
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 2px;
+    transition-duration: 200ms;
+    border-radius: 10px;
+    padding: 7px;
+}
+.followerslist li:hover{
+    background-color: #222;
+}
+.followerslist button{
+    width: 90px;
+}
+li.hide{
+    display: none;
+}
+
+.profilePic{
+    height: 60%;
+    display: flex;
+    width: fit-content;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.profilePic img{
+    width: 100%;
+}
+
+@media screen and (max-width: 1067px){
+    .suggests{
+        display: none;
+    }
+    .profile{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /*.wincon .profilePic{
+        height: fit-content;
+        display: flex;
+        width: 80%;
+    }*/
+    .wincon .hidden{
+        display: none;
+    }
+    .profile p.title{
+        font-size: 38px;
+        margin-top: 20px;
+    }
+    .editpro .card .svg-mid{
+        padding: 35px;
+    }
+    .fill .profile{
+        padding: 0;
+    }
+    .profile .connect{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        direction: ltr;
+    }
+    .profile .connect a{
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
+    }
+    .profile .connect .svg{
+        width: 38px;
+    }
+    .profile .statics{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .profile .statics div *{
+        font-size: 26px;
+    }
+    .profile .statics .count{
+        margin-top: 5px;
+    }
+    .profile .pics{
+        border-radius: 0;
+        height: 120px;
+    }
+    .profile .info{
+        margin:  25% 0 0;
+        padding: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .info > .data{
+        width: 100%;
+        padding-left: 8px;
+    }
+    .info .data span{
+        position: static;
+    }
+    .info .buttons{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px 0;
+    }
+    .info .buttons button{
+        padding: 10px 0;
+        width: 49%;
+    }
+    #edit{
+        width: 90%;
+    }
+    .editpro .card .picture{
+        width: 110px;
+        height: 110px;
+    }
+    .wincon .editpro{
+        width: 90%;
+        padding: 18px 13px 0;
+    }
+    .editpro .card .cover{
+        width: 100%;
+    }
+    .wincon .editpro .form .accinput{
+        font-size: 20px;
+        padding: 5px;
+    }
+    .wincon .followerslist{
+        width: 85%;
+        height: 70%;
+    }
+    .wincon .followerslist .pfpcontainer{
+        width: 48px;
+    }
+    .wincon .followerslist ul li{
+        margin: 2px 0;
+    }
+    .wincon .followerslist ul li button{
+        font-size: 18px;
+    }
+    /*.profile .pfpic{
+        height: 100%;
+        top: 50%;
+    }*/
+    .profile .piccon{
+        width: 135px;
+        height: 135px;
+        top: 54px;
+    }
+    .fill .profile{
+        border: none;
+    }
+}

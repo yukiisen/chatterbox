@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{appinfo.name} - Login
+        link(rel="stylesheet", href="/styles/login.css")
+    body
+        section.wincon.hidden
+            section#closer
+            section.recap.window
+                include recap
+                form#hiddenForm(method="post")
+                    input.recIn(type="hidden", name="username")
+                    input.recIn(type="hidden", name="password")
+        section.login.container
+            img(src="/pics/logo3.png")
+            form.form(method="post")
+                p.title Log in #{appinfo.name}
+
+                label.mid Username:
+                input#user.recOut(type="text", placeholder="Enter your username...", required, name="username")
+
+                pre#err Invalid username
+
+                label.mid Password:
+                input#pass.recOut(type="password", placeholder="Enter your password...", required, name="password")
+
+                button#log(type="submit") Log in
+                span.new Don't have an account?
+                    pre  
+                    a(href="/signup") Get Started
+            
+            span &copy; Copyright 2024 ChatterBox inc. All Rights reserved
+
+        section.welcome.container
+            h1
+                span.hello Welcome to ChatterBox.
+                span &RightCeiling;
+            img(src="/pics/avatar.png", alt="avatarp", width="65%")
+
+        script(src="/scripts/windows.js")
+        script(src="/scripts/recapatcha.js")
+        script(src="/scripts/login.js")

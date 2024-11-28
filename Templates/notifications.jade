@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title Notifications - #{appinfo.name}
+        link(rel="stylesheet", href="/styles/notifications.css")
+    body 
+        section#placer
+        
+        section.wincon.hidden 
+            section#token(token="#{token}")
+            section#closer 
+        
+        include nav 
+
+        section.container.main 
+            include search 
+            section.container.fill
+                h1.title Notifications:
+                ul
+                    each not in list
+                        li
+                            a(href="#{not.link}", class="#{not.stat == 0? 'unseen': ''}")
+                                .pfpcontainer: img.pfp(src="/uploads/#{not.picture}")
+                                p.large= not.notification_data
+    script(src="/socket.io.min.js")
+    script(src="/scripts/name.io.js")
+    script(src="/scripts/windows.js")

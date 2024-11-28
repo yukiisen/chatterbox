@@ -1,0 +1,27 @@
+section.container.nav
+    .user
+        span.usr(style="background-image: url('/uploads/#{mypic? mypic:(user.profile_pic? user.profile_pic: user.profile)}');")
+    nav
+        a(href="/inbox")
+            img(src="/svg/mail-alt-3-svgrepo-com.svg", title="Inbox", class="#{url == '/inbox'? 'selected': ''} #{url.indexOf('/chats/') == 0? 'selected': ''} #{url.indexOf('/groups/') == 0? 'selected': ''} #{url.indexOf('/new/') == 0? 'selected': ''}")
+
+        a(href="/notifications")
+            img(src="/svg/bell-svgrepo-com.svg", title="Notifications", class="#{url.indexOf('/notifications') == 0 ? 'selected': ''}")
+
+        a(href="/community")
+            img(src="/svg/users-svgrepo-com.svg", title="Community", class="#{url.indexOf('/community') == 0 ? 'selected': ''} #{url.indexOf('/posts') == 0 ? 'selected': ''}")
+
+        //- a(href="/saved")
+            img(src="/svg/bookmark-svgrepo-com.svg", title="Files", class="#{url.indexOf('/saved') == 0 ? 'selected': ''}")
+
+        a(href="/profile")
+            img(src="/svg/user-svgrepo-com.svg", title="Profile", class="#{url.indexOf('/profile') == 0 ? 'selected': ''}")
+
+        a.mobile(href="/about")
+            img(src="/svg/circle-information-svgrepo-com.svg", title="About", class="#{url.indexOf('/about') == 0 ? 'selected': ''}")
+
+    .about
+        a(href="/about")
+            img(src="/svg/circle-information-svgrepo-com.svg", title="About", class="#{url.indexOf('/about') == 0 ? 'selected': ''}")
+        a(href="/logout")
+            img(src="/svg/arrow-down-to-square-svgrepo-com.svg", style="transform: rotate(-90deg);", title="Log out")

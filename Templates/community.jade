@@ -1,0 +1,95 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{appinfo.name} - Community 
+        link(rel="stylesheet", href="/styles/posts.css")
+        link(rel="stylesheet", href="/styles/community.css")
+    body 
+        include contextMenu 
+        section#placer 
+        section.wincon.hidden 
+            section#token(token="#{token}")
+            section#closer
+            include postWindows 
+        include nav 
+        section.main.container
+            include search 
+            section.container.fill 
+                form.createpost(method="post", enctype="multipart/form-data") 
+                    a(href="/profile"): .pfpcontainer: img.pfp(src="/uploads/#{mypic}")
+                    textarea.inputmitai(name="post", maxlength="300", placeholder="Write something...")
+                    div.buttons
+                        button#attach(onclick="window.attachment.click()")
+                            img.svg(src="/svg/attachment-svgrepo-com.svg")
+                        button#post.action(type="submit")
+                            img.svg(src="/svg/send-alt-1-svgrepo-com.svg") 
+                    input#attachment.hidden(type="file", name="attachment", accept=".mp4,.jpg,.png,.webp,.jpeg,.gif,.svg,.avi")
+                section.posts#posts 
+                    each post in posts 
+                        if post.type == 'txt'
+                            .post.text(post="#{post.id}")
+                                .accin
+                                    a(href="/profile/#{post.username}")  
+                                        .pfpcontainer: img.pfp(src="/uploads/#{post.userPic}")
+                                        span.mid= post.username
+                                    img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                .data
+                                    pre= post.post_text
+                                .interact
+                                    div.left
+                                        span.tool
+                                            img.svg(src="#{post.reacted? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                            span.val= post.likes
+                                        span.tool
+                                            img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                            span.val= post.comments
+                                    span.tool.right
+                                        img.svg(src="#{post.saved?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                        else if post.type == 'img'
+                            .post.img(post="#{post.id}")
+                                .accin
+                                    a(href="/profile/#{post.username}")  
+                                        .pfpcontainer: img.pfp(src="/uploads/#{post.userPic}")
+                                        span.mid= post.username
+                                    img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                .data
+                                    span.input= post.post_text
+                                    img(src="/files/#{post.post_media}/image/", alt="#{post.post_media}")
+                                .interact
+                                    div.left
+                                        span.tool
+                                            img.svg(src="#{post.reacted? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                            span.val= post.likes
+                                        span.tool
+                                            img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                            span.val= post.comments
+
+                                    span.tool.right
+                                        img.svg(src="#{post.saved?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                        else 
+                            .post.img(post="#{post.id}")
+                                .accin
+                                    a(href="/profile/#{post.username}")  
+                                        .pfpcontainer: img.pfp(src="/uploads/#{post.userPic}")
+                                        span.mid= post.username
+                                    img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                .data
+                                    span.input= post.post_text
+                                    video(controls)
+                                        source(src="/files/#{post.post_media}/video/")
+                                .interact
+                                    div.left
+                                        span.tool
+                                            img.svg(src="#{post.reacted? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                            span.val= post.likes
+                                        span.tool
+                                            img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                            span.val= post.comments
+                                    span.tool.right
+                                        img.svg(src="#{post.saved?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+        script(src="/socket.io.min.js") 
+        script(src="/scripts/name.io.js") 
+        script(src="/scripts/windows.js") 
+        script(src="/scripts/posts.js") 
+        script(src="/scripts/community.js") 

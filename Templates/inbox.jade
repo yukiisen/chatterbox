@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{appinfo.name} - Inbox
+        link(rel="stylesheet", href="/styles/chat.css")
+        if url === '/inbox' 
+            link(rel="stylesheet", href="/styles/home-media.css")
+        else if url === '/inbox/'
+            link(rel="stylesheet", href="/styles/home-media.css")
+    body 
+        section#placer 
+        section.wincon.hidden
+            section#token(token="#{token}")
+            section#closer 
+            section.window.groups
+
+        include nav 
+        section.container.chatlist
+            .top
+                p.title.colored Messages
+                img.icon(src="/svg/pen-line-svgrepo-com.svg")
+            .online
+                span.mid" Online Now/span 
+                div.usersOn" 
+                    a(href="#"): span.pfp(style="background-image: url('pics/tmp.jpg');")
+            .msgs
+                span.mid All Messages
+                .messages
+                    a.chat.on(href="#") 
+                        span.pfp(style="background-image: url('pics/tmp3.jpg');")
+                        span.text
+                            label.mid.name yukii.sen
+                            label.mid.txt wach
+                        span.data
+                            label.time.mid 08:40
+                            span.case +9
+        

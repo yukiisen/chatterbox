@@ -1,0 +1,168 @@
+@keyframes col {
+    0%{background-color: rgb(207, 1, 1);}
+    10%{background-color: rgb(224, 90, 0);}
+    20%{background-color: rgb(171, 233, 0);}
+    30%{background-color: rgb(10, 228, 2);}
+    40%{background-color: rgb(1, 219, 147);}
+    50%{background-color: rgb(0, 132, 255);}
+    60%{background-color: rgb(17, 0, 255);}
+    70%{background-color: rgb(162, 0, 255);}
+    80%{background-color: rgb(234, 0, 255);}
+    100%{background-color: rgb(218, 0, 0);}
+}
+@keyframes colo {
+    0%{background: #aaaaff}
+    35%{background: #ffaaaa}
+    70%{background: #ddaaff}
+    100%{background: #aaaaff}
+}
+.login{
+    width: 40%;
+}
+.welcome{
+    width: 60%;
+    transition-duration: 300ms;
+    /*animation: colo 7s ease infinite;*/
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2%;
+    
+}
+.welcome img{
+    align-self: flex-end;
+}
+
+h1 *{
+    font-size: 70px;
+    font-family: title;
+    position: relative;
+    color: black;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+}
+
+.login img{
+    align-self: flex-start;
+    /*position: absolute;*/
+    width: 16%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 65%;
+    height: 60%;
+}
+.title{
+    font-size: 40px;
+    text-align: center;
+    font-family: title;
+}
+label{
+    margin: 20px 0 5px;
+}
+.form span{
+    display: flex;
+    justify-content: center;
+}
+.form > pre{
+    display: none;
+    color: red;
+    padding: 3px 2px;
+    font-size: 15px;
+}
+audio {
+    width: 30%;
+}
+#log, #create{
+    background-color: rgb(255, 59, 59);
+    transition-duration: 300ms;
+    margin: 30px 0 30px;
+}
+#log:hover, #create:hover{
+    background-color:  rgb(255, 79, 79);
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 59, 59);
+}
+img[alt="avatar"]{
+    width: 100%;
+}
+section.side .con{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 70%;
+
+}
+img[src="/svg/avatar (3).svg"],img[src="/svg/avatar (5).svg"]{
+    transform: rotateY(180deg);
+}
+section.side{
+    display: flex;
+    background-color: #eee;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+.acc .form{
+    width: 80%;
+    height: 100%;
+}
+.acc img{
+    align-self: center;
+    width: 120px;
+    margin-bottom: 10px;
+}
+.acc{
+    overflow: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .welcome, section.side{
+        display: none;
+    }
+    body{
+        height: 100%;
+    }
+    .login{
+        width: 100%;
+        padding: 10px 10px 0px;
+    }
+    form.form input{
+        padding: 10px 18px;
+    }
+    form.form, .acc form.form{
+        width: 80%;
+        height: fit-content;
+    }
+    .login .form{
+        margin-bottom: 10px;
+    }
+    .login > img{
+        width: 70px;
+        height: fit-content;
+    }
+    .acc > img{
+        margin: 15px 0 20px;
+        width: 80px;
+    }
+    .acc form.form {
+        width: 90%;
+    }
+    .acc{
+        padding-bottom: 10px;
+    }
+    form.form p.title{
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+}

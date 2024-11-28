@@ -1,0 +1,177 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{user.username} - Profile
+        link(rel="stylesheet", href="/styles/profile.css")
+        link(rel="stylesheet", href="/styles/posts.css")
+        style 
+            |.editpro .card .picture{
+            |    background-image: url('/uploads/#{user.profile}');
+            |}
+            |.editpro .card .cover{
+            |    background-image: url('/uploads/cover/#{user.cover}');
+            |}
+    body 
+        include contextMenu 
+
+        section#placer
+
+        section.wincon.hidden
+            section#token(token="#{token}")
+            section#closer 
+            include postwindows 
+
+            section.window.profilePic
+                img(src="/uploads/#{user.profile}")
+
+            section.window.followerslist
+                input#searchlist(type="text", placeholder="Search...")
+                ul
+                    //- li
+                    //-     a.accin(href="#") 
+                    //-         img.pfp(src="/pics/tmp3.jpg")
+                    //-         span.mid yukii.sen
+                    //-     button Follow
+            if me == true
+                form.editpro.window(method="post", enctype="multipart/form-data")
+                    p.title Edit your profile:
+                    .card
+                        .picture(style="background-image: url('/uploads/#{user.profile}');")
+                            img(src="/svg/image-pen-svgrepo-com.svg", class="svg-mid hidden", onclick="window.pfpload.click()")
+                            input(type="file", name="pfp", id="pfpload", class="hidden", accept=".png,.jpg,.jpeg")
+                    .card
+                        .picture.cover(style="background-image: url('/uploads/cover/#{user.cover}');")
+                            img(src="/svg/image-pen-svgrepo-com.svg", class="svg-mid hidden", onclick="window.coverload.click()")
+                            input(type="file", name="cover", id="coverload", class="hidden", accept=".png,.jpg,.jpeg")
+                    .card.form
+                        label.large UserID:
+                        input(type="text", class="accinput large", placeholder="New UserId...", required name="userid")
+                    .card.form
+                        label.large UserName
+                        input(type="text", class="accinput large", placeholder="New UserName...", required name="username")
+                    .card.form
+                        label.large Bio (Up to 400 letter):
+                        textarea(rows="3", class="accinput large inputmitai", placeholder="New Bio...", maxlength="400", name="bio")
+                    .card.form
+                        label.large Your Email:
+                        input(type="email", class="accinput large", placeholder="New Email...", name="email")
+                    .card.form
+                        label.large Instagram Account:
+                        input(type="text", class="accinput large", placeholder="Instagram Account...", name="insta")
+                    .save.card
+                        button(type="submit") Save Profile
+        include nav 
+        section.container.main 
+            include search 
+            section.container.fill
+                section.container.profile
+                    .pics(style="background-image: url('/uploads/cover/#{user.cover}');")
+                        .piccon: img(src="/uploads/#{user.profile}", class="pfpic pfp") 
+                    .info
+                        .statics
+                            .static
+                                span.large Followers
+                                span.count.large#followersCount= user.followers
+                            .static
+                                span.large Following
+                                span.count.large#followingsCount= followings
+                            .static
+                                span.large Posts
+                                span.count.large: a(href="#posts")= posts.length
+                        .data 
+                            p.title= user.shown_name
+                            span#username.large @#{user.username}
+                            span.large.bio: pre= user.bio
+                        .buttons
+                            if me == true 
+                                button#edit(onclick="showWin('editpro');updateprofile()") Edit Profile
+                            else 
+                                button#follow.sen.action #{following? 'Unfollow': 'Follow'}
+                                button#meassage.sen: a(href="/new/chat/#{user.username}" style="display: block;") Message
+                    
+                    .connect
+                        a(href="https://instagram.com/#{user.insta}", style="#{user.insta == null? 'display: none;': ''}")
+                            img(src="/svg/insta.svg", class="svg")
+                            span @#{user.insta}
+                        a(href="mailto:#{user.email}", style="#{user.email == null? 'display: none;': ''}")
+                            img(src="/svg/mail-alt-3-svgrepo-com.svg", class="svg") 
+                            span= user.email
+                    .spacer: span(style="visibility: hidden;") 123
+
+                    section.posts#posts
+                        each post in posts
+                            if post.post_type == 'txt'
+                                .post.text(post="#{post.id}")
+                                    .accin
+                                        a(href="/profile/#{user.username}")  
+                                            .pfpcontainer: img.pfp(src="/uploads/#{user.profile}")
+                                            span.mid= user.username
+                                        img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                    .data
+                                        pre= post.post_text
+                                    .interact
+                                        div.left
+                                            span.tool
+                                                img.svg(src="#{reacts[post.id]? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                                span.val= post.likes
+                                            span.tool
+                                                img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                                span.val= comments[post.id]? comments[post.id]: 0
+                                        span.tool.right
+                                            img.svg(src="#{saves[post.id]?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                            else if post.post_type == 'img'
+                                .post.img(post="#{post.id}")
+                                    .accin
+                                        a(href="/profile/#{user.username}")  
+                                            .pfpcontainer: img.pfp(src="/uploads/#{user.profile}")
+                                            span.mid= user.username
+                                        img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                    .data
+                                        span.input= post.post_text
+                                        img(src="/files/#{post.post_media}/image/", alt="#{post.post_media}")
+                                    .interact
+                                        div.left
+                                            span.tool
+                                                img.svg(src="#{reacts[post.id]? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                                span.val= post.likes
+                                            span.tool
+                                                img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                                span.val= comments[post.id]? comments[post.id]: 0
+
+                                        span.tool.right
+                                            img.svg(src="#{saves[post.id]?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                            else 
+                                .post.img(post="#{post.id}")
+                                    .accin
+                                        a(href="/profile/#{user.username}")  
+                                            .pfpcontainer: img.pfp(src="/uploads/#{user.profile}")
+                                            span.mid= user.username
+                                        img.svg(src="/svg/dots-vertical-svgrepo-com.svg") 
+                                    .data
+                                        span.input= post.post_text
+                                        video(controls)
+                                            source(src="/files/#{post.post_media}/video/")
+                                    .interact
+                                        div.left
+                                            span.tool
+                                                img.svg(src="#{reacts[post.id]? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                                span.val= post.likes
+                                            span.tool
+                                                img.svg(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                                span.val= comments[post.id]? comments[post.id]: 0
+                                        span.tool.right
+                                            img.svg(src="#{saves[post.id]?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                section.suggests.container
+                    span.large People You May Know:
+                    each element in suggestions
+                        .account
+                            a.accin(href="/profile/#{element.name}")
+                                .pfpcontainer: img.pfp(src="/uploads/#{element.profile}")
+                                span.mid= element.name
+                            button Follow
+    script(src="/socket.io.min.js")
+    script(src="/scripts/name.io.js")
+    script(src="/scripts/windows.js")
+    script(src="/scripts/posts.js")
+    script(src="/scripts/profile.js")

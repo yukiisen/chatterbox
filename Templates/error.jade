@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{appinfo.name} - Error
+    body.err
+        h1.title.error Error!
+        p.title= err.message
+        p.large.errinfo This May Happen Because You Tried To Edit Some Logic in The client Side code or because of an internal server error, please try again later
+        a(href="/login")
+            img(src="/svg/arrow-left-move-svgrepo-com.svg")
+            span Login Page
+        a(href="/inbox")
+            img(src="/svg/arrow-left-move-svgrepo-com.svg")
+            span Home Page

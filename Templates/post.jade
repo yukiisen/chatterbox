@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title Posts - #{post.username}
+        link(rel="stylesheet", href="/styles/posts.css")
+        style 
+            |.img .data img, .img .data video{
+            |    max-height: 100%;
+            |}
+    body 
+        include contextMenu 
+        
+        section#placer
+
+        section.wincon.hidden 
+            section#token(token="#{token}")
+            section#closer
+
+            ul.settings.window 
+                li#deletepost Delete
+                li#editpost Edit
+                li#savepost Save
+                li#reportpost(style="color: rgb(255,59,59);") Report (For Errors)
+
+        include nav 
+
+        section.main.container
+            include search
+
+            section.container.fill.postcon.fullpost
+                .post(post="#{post.id}", class="#{post.type === 'img'? 'img': post.type === 'vid'? 'img vid': 'text'}", style="height: 100%;")
+                    .accin
+                        a(href="/profile/#{post.username}") 
+                            .pfpcontainer: img.pfp(src="/uploads/#{post.userPic}")
+                            span.mid= post.username
+                        img.svg#bigsetting(src="/svg/dots-vertical-svgrepo-com.svg") 
+                    .data
+                        if post.type === 'txt'
+                            pre= post.post_text
+                        else if post.type === 'img'
+                            span.input= post.post_text
+                            img(src="/files/#{post.post_media}/image/", alt="#{post.post_media}")
+                        else
+                            span.input= post.post_text
+                            video(controls)
+                                source(src="/files/#{post.post_media}/video/")
+                    .interact
+                        div.left
+                            span.tool
+                                img.svg#bigheart(src="#{reacted === true? '/svg/heart-col-alt-svgrepo-com.svg':'/svg/heart-alt-svgrepo-com.svg'}")
+                                span.val= post.likes
+                            span.tool
+                                img.svg#bigcomment(src="/svg/comment-circle-list-svgrepo-com.svg")
+                                span.val= post.comments
+                        span.tool.right
+                            img.svg#bigsave(src="#{saved === true?'/svg/bookmark-col-svgrepo-com.svg':'/svg/bookmark-svgrepo-com.svg'}")
+                div.comments
+                    ul.coms
+                        //- li 
+                        //-     a(href="#"): img.pfp(src="/pics/tmp3.jpg")
+                        //-     span 
+                        //-         span.large yelan
+                        //-         span.text.mid when i was young, i was a bird...
+                    form 
+                        input(type="text" name="comment", placeholder="Write a comment...")
+                        input(type="submit", value="Comment")
+
+    script(src="/socket.io.min.js")
+    script(src="/scripts/name.io.js")
+    script(src="/scripts/windows.js")
+    script(src="/scripts/post.js")

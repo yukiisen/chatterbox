@@ -1,0 +1,36 @@
+ul.settings.window 
+    li#deletepost Delete
+    li#editpost Edit
+    li#savepost Save
+    li#reportpost(style="color: rgb(255,59,59);") Report (For Errors)
+    //- li#blockuser Block User
+
+section.fullpost.window
+    .post
+        .accin
+            div 
+                img.pfp
+                span.mid
+            img.svg#bigsetting(src="/svg/dots-vertical-svgrepo-com.svg") 
+        .data
+        .interact
+            div.left
+                span.tool
+                    img.svg#bigheart(src="/svg/heart-alt-svgrepo-com.svg")
+                    span.val 378
+                span.tool
+                    img.svg#bigcomment(src="/svg/comment-circle-list-svgrepo-com.svg")
+                    span.val 56
+
+            span.tool.right
+                img.svg#bigsave(src="/svg/bookmark-svgrepo-com.svg") 
+    div.comments
+        ul.coms
+            //- li 
+            //-     a(href="#"): img.pfp(src="/pics/tmp3.jpg")
+            //-     span 
+            //-         span.large yelan
+            //-         span.text.mid when i was young, i was a bird...
+        form 
+            input(type="text" name="comment", placeholder="Write a comment...")
+            input(type="submit", value="Comment")

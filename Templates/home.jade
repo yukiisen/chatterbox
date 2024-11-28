@@ -1,0 +1,203 @@
+doctype html
+html(lang="en")
+  head
+    include head
+    title #{appinfo.name} - Inbox
+    link(rel="stylesheet", href="/styles/chat.css")
+    if url === '/inbox' 
+        link(rel="stylesheet", href="/styles/home-media.css")
+    else if url === '/inbox/'
+        link(rel="stylesheet", href="/styles/home-media.css")
+  body
+    section#placer 
+    include contextMenu
+    section.wincon.hidden
+      section#token(token="#{token}")
+      section#closer
+      form.window.groups(method="post" enctype="multipart/form-data" action="/groups")
+        p.title.hidden Group Settings
+        .leftSide
+          span
+            label.large Group Name:
+            input(type="text" name="groupName" placeholder="Enter a group name..." required)
+          span
+            label.large First Message:
+            input(type="text" name="groupMsg" placeholder="You can welcome your members..." required)
+          span.buttons
+            button.action(type="submit") Update Group
+            button Remove Group
+        .rightSide
+          .picture
+            input(type="file" name="groupPic" id="groupPic" accept=".png,.jpg,.jpeg,.webp,.avif,.svg" style="display: none;")
+            img.svg-mid.hidden(src="/svg/image-pen-svgrepo-com.svg" onclick="window.groupPic.click()")
+          span
+            label.large Group Members
+            textarea#members.inputmitai(name="members" rows="3" placeholder="@user1 @user2 @..." required)
+    include nav
+    section.container.chatlist
+      .top
+        p.title.colored Messages
+        img.icon(src="/svg/pen-line-svgrepo-com.svg")
+        //- <img src="/svg/search-alt-2-svgrepo-com.svg" class="icon">
+      .online
+        span.mid Online Now
+        .usersOn
+          a(href="#")
+            span.pfp(style="background-image: url('/uploads/#{mypic}');")
+          each user in online
+            a(href="/chats/#{user.chat}")
+              span.pfp(style="background-image: url('/uploads/#{user.picture}');")
+      .msgs
+        span.mid All Messages
+        .messages
+          each chat in chats
+            a.chat(href="/#{chat.type === 'group'? 'groups/' + chat.id: 'chats/' + chat.id}" class="#{chat.select? 'on': ''}" chat="#{chat.type}-#{chat.id}")
+              span.pfp(style="background-image: url('#{chat.type === 'group'? `/files/${chat.profile}/groups/`: `/uploads/${chat.profile}`}');")
+              span.text
+                label.mid.name= chat.username
+                label.txt= chat.mesage_type === 'text'? chat.message_data: 'Sent an image'
+              span.data
+                label.time.mid= chat.sent_date
+                span.case(class="#{chat.mine? 'sent': ''}")
+                  if chat.mine == true 
+                    img(src="/svg/check-svgrepo-com.svg" class="svg")
+                  else if chat.unseen > 0
+                    = chat.unseen
+    section.container.main
+      include search
+      if isChat == true
+        .header.chat
+          a(href="/inbox")
+            img.back-icon.svg.hidden(src="/svg/go-back.svg" alt="back")
+          a.pfp(href="#{chat.type === 'group'? '#': '/profile/' + chat.username}", style="background-image: url('#{chat.type === 'group'? `/files/${chat.profile}/groups/`: `/uploads/${chat.profile}`}');")
+          span.text
+            label.mid.name= chat.username
+            label.mid.txt= isOnline? 'Online': 'Offline'
+          span.tools
+            a(href="#")
+              img.svg(src="/svg/arrow-down-to-square-svgrepo-com2.svg" title="Download Chat")
+            a(href="#")
+              img.svg(src="/svg/trash-blank-svgrepo-com.svg" title="Delete Chat")
+            //- a(href="#")
+              img.svg(src="/svg/mail-block-svgrepo-com.svg" title="Block User")
+      
+      .chatcon
+        .usrdata
+          if url == "/inbox" || url == "/inbox/"
+            div.cen
+              img(src="./svg/mail-alt-3-svgrepo-com.svg" width="25%")
+              h1.title Contact With Friends...
+          else
+            a.pfp(href="#{chat.type === 'chat'? `/profile/${chat.username}`: '#'}" style="background-image: url(#{chat.type === 'group'? `/files/${chat.profile}/groups/`: `/uploads/${chat.profile}`});")
+            span.name.mid= chat.username
+            span.mid= chat.followers
+        if isChat == true
+          ul.messagesl
+            each message, index in messages
+              - if (index !== 0) {var last = messages[index - 1].profile === message.profile}
+              - if (index !== messages.length - 1) {var next = messages[index + 1].profile === message.profile} else {var next = false};
+              case message.type
+                when 'text'
+                  li(class="#{message.mine? 'right': 'left'} #{last? 'new': ''}" message="#{message.id}")
+                    if message.mine === false
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                      p.msg(class="#{last? 'no-tl': ''} #{next? 'no-bl': ''}")= message.data
+                    else
+                      p.msg(class="#{last? 'no-tr': ''} #{next? 'no-br': ''}")= message.data
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                when 'img'
+                  li(class="#{message.mine? 'right': 'left'} #{last? 'new': ''}" message="#{message.id}")
+                    if message.mine === true 
+                      p.msg.img(class="#{last? 'no-tr': ''} #{next? 'no-br': ''}")
+                        img(src="/private/#{message.data}" alt="")
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                    else 
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                      p.msg.img(class="#{last? 'no-tl': ''} #{next? 'no-bl': ''}")
+                        img(src="/private/#{message.data}" alt="")
+                when 'vid'
+                  li(class="#{message.mine? 'right': 'left'} #{last? 'new': ''}" message="#{message.id}")
+                    if message.mine === true 
+                      p.msg.img(class="#{last? 'no-tr': ''} #{next? 'no-br': ''}")
+                        video(src="/private/#{message.data}" controls)
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                    else 
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                      p.msg.img(class="#{last? 'no-tl': ''} #{next? 'no-bl': ''}")
+                        video(src="/private/#{message.data}" controls)
+                when 'aud'
+                  li(class="#{message.mine? 'right': 'left'} #{last? 'new': ''}" message="#{message.id}")
+                    if message.mine === true 
+                      p.msg.img(class="#{last? 'no-tr': ''} #{next? 'no-br': ''}")
+                        audio.msg(src="/private/#{message.data}" controls)
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                    else 
+                      div.pfpcontainer(style="#{last? 'visibility: hidden;': ''}"): img.pfp(src="/uploads/#{message.profile}")
+                      p.msg.img(class="#{last? 'no-tl': ''} #{next? 'no-bl': ''}")
+                        audio.msg(src="/private/#{message.data}" controls)
+                default 
+                  li hi
+              //- when 'file'
+                li.right
+                  a.msg.file(href="#")
+                    img.svg(src="/svg/file-svgrepo-com.svg")
+                    span.large= message.data
+                    form(action="/save" method="get")
+                      input(type="hidden" name="id" value="filename")
+                      button(type="submit")
+                        img(src="/./svg/bookmark-svgrepo-com.svg")
+                  img.pfp(src="/pics/tmp.jpg")
+              //- li.left
+                img.pfp(src="/pics/tmp3.jpg")
+                a.msg.file(href="#")
+                  img.svg(src="/svg/file-svgrepo-com.svg")
+                  span.large workFile.zip
+                  form(action="/save" method="get")
+                    input(type="hidden" name="id" value="filename")
+                    button(type="submit")
+                      img(src="/./svg/bookmark-svgrepo-com.svg")
+              //- li.right
+                a.msg.file(href="#")
+                  img.svg(src="/svg/file-svgrepo-com.svg")
+                  span.large workFile.zip
+                  form(action="/save" method="get")
+                    input(type="hidden" name="id" value="filename")
+                    button(type="submit")
+                      img(src="/./svg/bookmark-svgrepo-com.svg")
+                img.pfp(src="/pics/tmp.jpg")
+        span#scrl 
+      if isChat == true
+        form.form(enctype="multipart/form-data" method="post")
+          .inputBox
+            textarea.inputMsg.inputmitai(type="text", name="msg", placeholder="Your Message here...", rows="1")
+            button(onclick="window.filez.click()")
+              img.svg(src="/svg/image-plus-svgrepo-com.svg")
+            //- button(onclick="window.filex.click()")
+              img.svg(src="/svg/attachment-svgrepo-com.svg")
+            //- button(onclick="record()" id="voiceRecorder")
+              img.svg(src="/svg/microphone-svgrepo-com.svg")
+          button.action#sendbtn
+            img.svg(src="/svg/send-alt-1-svgrepo-com.svg")
+
+          input#filez(type="file" name="img" accept=".png,.jpg,.jpeg,.gif,.avif,.webp,.svg" style="display: none;" multiple)
+          //- input#filex(type="file" name="file" style="display: none;" multiple)
+
+    script(src="/socket.io.min.js")
+    script(src="/scripts/name.io.js")
+    script(src="/scripts/windows.js")
+    script(src="/scripts/chats.js")
+    script(src="/scripts/voice.js")
+    if newChat === true 
+      script(src="/scripts/newmsg.js") 
+      script.
+        document.getElementsByClassName('form')[0].addEventListener('submit', (e) => {
+          e.preventDefault();
+        });
+    if isChat == true && !newChat
+      script(src="/scripts/messages.js")
+      script.
+        document.getElementsByClassName('form')[0].addEventListener('submit', (e) => {
+          e.preventDefault();
+        });
+        window.location.hash = '';
+        window.location.hash = 'scrl';

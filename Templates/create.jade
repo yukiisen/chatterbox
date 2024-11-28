@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+    head
+        include head
+        title #{appinfo.name} - Sign Up
+        link(rel="stylesheet", href="/styles/login.css")
+    body
+        section.wincon.hidden
+            section#closer
+            section.recap.window
+                include recap
+                form#hiddenForm(method="post")
+                    input.recIn(type="hidden", name="user")
+                    input.recIn(type="hidden", name="pass")
+                    input.recIn(type="hidden", name="mail")
+
+        section.contaiter.side
+            .con
+                img(src="/svg/avatar (2).svg", alt="avatar")
+                img(src="/svg/avatar (3).svg", alt="avatar")
+                img(src="/svg/avatar (4).svg", alt="avatar")
+                img(src="/svg/avatar (5).svg", alt="avatar")
+
+        section.login.container.acc
+            img(src="/pics/logo3.png")
+            form.form(method="post")
+                p.title Create a New Account
+
+                label.mid Username:
+                input#user.recOut(type="text", name="userw", placeholder="Enter your username...", required)
+
+                pre.err Invalid username!
+
+                label.mid New Password:
+                input#pass.recOut(type="password", name="passw", placeholder="Enter your password...", required)
+                pre.err Password must contain at least 8 characters
+
+                label.mid Re-enter Password:
+                input#pass2(type="password", placeholder="Enter your password...", required)
+                pre.err Different password!
+
+                label.mid Email (optional):
+                input.recOut#mail(type="email", name="mailw", placeholder="Enter your email...")
+
+                button#create(type="submit") Signup
+            
+            span &copy; Copyright 2024 ChatterBox inc. All Rights reserved
+        script(src="/scripts/windows.js")
+        script(src="/socket.io.min.js")
+        script(src="/scripts/recapatcha.js")
+        script(src="/scripts/newacc.js")

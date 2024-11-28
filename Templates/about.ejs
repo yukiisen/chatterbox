@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- head %>
+    <link rel="stylesheet" href="/styles/about.css">
+    <title>About <%= pack.name %></title>
+</head>
+<body>
+    <section id="placer"></section>
+    <section class="wincon hidden">
+        <section id="token" token="<%= token %>"></section>
+        <section id="closer"></section>
+    </section>
+    <%- nav %>
+    <section class="container main">
+        <%- search %>
+
+        <section class="container fill">
+            <section class="about">
+                <img src="/pics/logo3.png" class="logo">
+                <div class="information">
+                    <ul>
+                        <li class="title"><%= pack.name %></li>
+                        <li class="large">&copy; <%= pack.name.toLowerCase() %> inc</li>
+                        <li class="large">By <%= pack.author %></li>
+                        <li class="large">Version: <%= pack.version %></li>
+                        <li class="large">Last Update: <%= pack["last-update"] %></li>
+                    </ul>
+                </div>
+                
+            </section>
+            <section class="settings">
+                <ul>
+                    <li>Delete your posts</li>
+                    <li>Delete Account</li>
+                    <!-- <li>Feedback</li> -->
+                    <li>Help us in development</li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <script src="/socket.io.min.js"></script>
+    <script src="/scripts/name.io.js"></script>
+    <script src="/scripts/windows.js"></script>
+    <script src="/scripts/settings.js"></script>
+</body>
+</html>

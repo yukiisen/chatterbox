@@ -1,0 +1,7 @@
+section.search
+    form#search(action="/search", method="get")
+        span.search
+            img.svg(src="/svg/search-alt-2-svgrepo-com.svg")
+            input(type="search", name="search", placeholder="Search (Alt + s)...", value="#{search? search: ''}", required)
+        input.action(type="submit", value="Search")
+    span.mid.lang EN

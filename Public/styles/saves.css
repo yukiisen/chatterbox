@@ -1,0 +1,48 @@
+.fill > section{
+    align-items: flex-start;
+    padding: 15px;
+    overflow: auto;
+    flex-direction: column;
+}
+.fill .posts{
+    width: 60%;
+    border-right: 1px #333 solid;
+}
+.fill .files{
+    width: 40%;
+    background-color: #191919;
+}
+.files ul{
+    list-style-type: none;
+    width: 100%;
+}
+.files ul li a{
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    margin: 5px 0px;
+    border-radius: 10px;
+    padding: 10px;
+    transition-duration: 300ms;
+}
+.files a img{
+    width: 50px;
+}
+.files a span{
+    font-size: 28px;
+}
+.files a:hover{
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 767px) {
+    .fill{
+        overflow: auto;
+    }
+    .fill section.container{
+        width: 100%;
+        height: fit-content;
+        overflow: visible;
+        border: none;
+    }
+}
