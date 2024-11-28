@@ -24,8 +24,8 @@ npm install
 
 install and run a mysql server.
 
-run the database init file (use a tool or type in the default mysql cli):
-```mysql
+run the database init file (use a MySQL client tool or the default CLI):
+```
 \. $ProjectsDir/database.sql
 ```
 
