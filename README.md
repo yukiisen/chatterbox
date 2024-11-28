@@ -56,4 +56,4 @@ MySQL server: 5.x.x
 +30 years lifespan.
 A strong heart so you don't log out of life after seeing the code.
 
-Check My twitter on: (Yuki)[https://x.com/notarchivist]
+Check My twitter on: [wiw](https://x.com/notarchivist)
