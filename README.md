@@ -6,6 +6,8 @@ well, this is a social media platform written in javascript.
 I made it when I was like 14 and still learning the basics of web.
 It sucks now when I see it but I'll share it anyway.
 
+**Please tell me if any file is missing.**
+
 ## Setup
 - first clone the repository.
 - do the instructions
