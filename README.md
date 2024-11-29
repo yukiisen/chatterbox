@@ -13,6 +13,19 @@ It sucks now when I see it but I'll share it anyway.
 - ```express``` because it's express
 - ```mysql``` because I use windows 7
 
+## Screenshots:
+**I could barely take these two since I'm using a different environment now and I'm not reads to re-write this terrible code**
+
+The login screen:
+<img src="https://github.com/yukiisen/chatterbox/blob/main/loginscreen.png?raw=true" />
+
+
+The profile Page:
+<img src="https://github.com/yukiisen/chatterbox/blob/main/profile.png?raw=true" />
+
+**remark:** These are the prototypes I made at first when I started the project.
+**another remark:** i was about to end my life when I opened the ```server.js``` file to run the server.
+
 ## Feautures:
 - real-time messaging
 - post and comment on people's posts
@@ -21,7 +34,7 @@ It sucks now when I see it but I'll share it anyway.
 ## Setup
 - first clone the repository.
 - do the instructions
-- make sure you're not going to open the ```server.js``` file by mistake or it'll kill you.
+- make sure you're not going to open the ```server.js``` file by mistake or it'll kill you. (you'll have to fix it anyway so... rest in peace..)
 - run the server
 
 ### setup instructions
@@ -36,20 +49,24 @@ install and run a mysql server.
 
 run the database init file (use a MySQL client tool or the default CLI):
 ```
-\. $ProjectsDir/database.sql
+\. $ProjectDir/database.sql
 ```
+
+**NOTE:** Make sure to comment the last three queries in the file because they're used only for the sqlite database.
 
 ## Running:
 ```bash
 # windows
 set DBPASS=mysql_server_password
+set NETPASS=anything
 set PORT=server_port
-run DBusername host
+run DBusername host?
 
 # linux
 export DBPASS=mysql_server_password
+export NETPASS=anything
 export PORT=server_port
-sudo node server.js DBusername host
+sudo node server.js DBusername host?
 ```
 
 ## Notes:
@@ -67,5 +84,8 @@ MySQL server: ```5.x.x```
 
 +30 years lifespan.
 And strong heart so you don't log out of life after seeing the code.
+
+**NOTE:**
+You may enounter some issues with the ```mysql``` module, I've already included the ```mysql2``` module in the ```package.json``` but you'll need to do a lots of tweakings just to run it normally (just override the ```db.query``` function)
 
 Check My twitter on: [notarchivist](https://x.com/notarchivist)
