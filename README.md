@@ -14,7 +14,7 @@ It sucks now when I see it but I'll share it anyway.
 - ```mysql``` because I use windows 7
 
 ## Screenshots:
-**I could barely take these two since I'm using a different environment now and I'm not reads to re-write this terrible code**
+**I could barely take these two since I'm using a different environment now and I'm not ready to re-write this terrible code**
 
 The login screen:
 <img src="https://github.com/yukiisen/chatterbox/blob/main/loginscreen.png?raw=true" />
@@ -24,7 +24,7 @@ The profile Page:
 <img src="https://github.com/yukiisen/chatterbox/blob/main/profile.png?raw=true" />
 
 **remark:** These are the prototypes I made at first when I started the project.
-**another remark:** i was about to end my life when I opened the ```server.js``` file to run the server.
+**another remark:** i was about to cancel programing when I opened the ```server.js``` file to run the server.
 
 ## Feautures:
 - real-time messaging
