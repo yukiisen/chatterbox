@@ -1,5 +1,4 @@
--- Active: 1715687509959@@127.0.0.1@3306@chatterbox
-
+-- Active: 1737137809733@@127.0.0.1@3306@chatterbox
 DROP DATABASE chatterbox;
 CREATE DATABASE IF NOT EXISTS chatterbox;
 
@@ -110,6 +109,7 @@ CREATE TABLE IF NOT EXISTS saves(
 );
 
 CREATE TABLE IF NOT EXISTS notifications(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
     notification_data VARCHAR(30) NOT NULL,
     link VARCHAR(50) NOT NULL,

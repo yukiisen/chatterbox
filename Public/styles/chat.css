@@ -51,7 +51,7 @@ section.search{
 .chat{
     text-decoration: none;
     /*margin-top: 7px;*/
-    padding: 0 10px 5px;
+    padding: 4px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,7 +229,7 @@ a.chat:hover{
     background-color: rgb(205, 39, 39);
 }
 .chatcon{
-    height: 77%;
+    height: 100%;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -535,17 +535,17 @@ div.space{
 }
 
 @media screen and (min-width: 767px) {
-    .msg{
+    /*.msg{
         padding-top: 6px;
-    }
+    }*/
     .messagesl .img{
         padding-top: 10px;
     }
     .msg.img{
         padding-bottom: 0;
     }
-    .chat .txt{
+    /*.chat .txt{
         position: relative;
         bottom: 5px;
-    }
+    }*/
 }

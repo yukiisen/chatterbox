@@ -75,7 +75,7 @@ function main(host, port, pass) {
             cmd = cmd.toLowerCase();
             if (cmd == 'exit' || cmd == 'leave') {
                 client.end(() => {
-                    process.exit(1);
+                    process.exit(0);
                 });
             } else {
                 client.write('cmd: ' + cmd);

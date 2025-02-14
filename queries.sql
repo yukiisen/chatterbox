@@ -35,7 +35,7 @@ SELECT followin FROM follow WHERE follower=?;
 --END_QUERY
 
 --getUserPosts => QUERY:
-SELECT id, post_type, post_text, post_media, likes FROM postwithreaction WHERE user_id=? ORDER BY post_date DESC, likes DESC;
+SELECT id, post_type, post_text, post_media, likes FROM postWithReaction WHERE user_id=? ORDER BY post_date DESC, likes DESC;
 --END_QUERY
 
 --getProfileOnly => QUERY:
@@ -142,7 +142,7 @@ SELECT post_id FROM interactions WHERE user_id=(SELECT id FROM users WHERE usern
 --END_QUERY
 
 --getMeta => QUERY:
-SELECT likes, (SELECT username FROM users WHERE id=user_id) AS username FROM postwithreaction WHERE id=? LIMIT 1;
+SELECT likes, (SELECT username FROM users WHERE id=user_id) AS username FROM postWithReaction WHERE id=? LIMIT 1;
 --END_QUERY
 
 
@@ -205,19 +205,19 @@ SELECT comment_id AS id, username, profile_pic AS profile, comments
 
 --getPostData => QUERY:
 SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , comments.post_id AS id, COUNT(*) AS comments
- FROM postwithreaction, users, comments
- WHERE users.id = postwithreaction.user_id AND comments.post_id = postwithreaction.id AND postwithreaction.id = ?
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , comments.post_id AS id, COUNT(*) AS comments
+ FROM postWithReaction, users, comments
+ WHERE users.id = postWithReaction.user_id AND comments.post_id = postWithReaction.id AND postWithReaction.id = ?
  GROUP BY comments.post_id
  UNION
  SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , postwithreaction.id AS id, 0 AS comments
- FROM postwithreaction, users
- WHERE users.id = postwithreaction.user_id AND postwithreaction.id = ? ORDER BY likes DESC, comments DESC LIMIT 1;
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , postWithReaction.id AS id, 0 AS comments
+ FROM postWithReaction, users
+ WHERE users.id = postWithReaction.user_id AND postWithReaction.id = ? ORDER BY likes DESC, comments DESC LIMIT 1;
 --END_QUERY
 
 
@@ -239,28 +239,28 @@ SELECT id, username, profile_pic AS profile FROM users
 
 --searchPosts => QUERY:
 SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , comments.post_id AS id, COUNT(*) AS comments
- FROM postwithreaction, users, comments
- WHERE users.id = postwithreaction.user_id AND comments.post_id = postwithreaction.id AND (postwithreaction.post_text LIKE CONCAT('%', ?, '%') OR SOUNDEX(postwithreaction.post_text) = SOUNDEX(?))
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , comments.post_id AS id, COUNT(*) AS comments
+ FROM postWithReaction, users, comments
+ WHERE users.id = postWithReaction.user_id AND comments.post_id = postWithReaction.id AND (postWithReaction.post_text LIKE CONCAT('%', ?, '%') OR SOUNDEX(postWithReaction.post_text) = SOUNDEX(?))
  GROUP BY comments.post_id
  UNION
  SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , postwithreaction.id AS id, 0 AS comments
- FROM postwithreaction, users
- WHERE users.id = postwithreaction.user_id AND (postwithreaction.post_text LIKE CONCAT('%', ?, '%') OR SOUNDEX(postwithreaction.post_text) = SOUNDEX(?)) ORDER BY id, username, likes DESC, comments DESC;
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , postWithReaction.id AS id, 0 AS comments
+ FROM postWithReaction, users
+ WHERE users.id = postWithReaction.user_id AND (postWithReaction.post_text LIKE CONCAT('%', ?, '%') OR SOUNDEX(postWithReaction.post_text) = SOUNDEX(?)) ORDER BY id, username, likes DESC, comments DESC;
 --END_QUERY
 
 --suggestPosts => QUERY:
 SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , comments.post_id AS id, COUNT(*) AS comments, postwithreaction.post_date AS date
- FROM postwithreaction, users, comments
- WHERE users.id = postwithreaction.user_id AND comments.post_id = postwithreaction.id 
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , comments.post_id AS id, COUNT(*) AS comments, postWithReaction.post_date AS date
+ FROM postWithReaction, users, comments
+ WHERE users.id = postWithReaction.user_id AND comments.post_id = postWithReaction.id 
  AND (
      username IN (SELECT username FROM users WHERE id IN (
          SELECT followin FROM follow WHERE follower=?
@@ -285,11 +285,11 @@ SELECT username, profile_pic AS userPic,
  GROUP BY comments.post_id
  UNION
  SELECT username, profile_pic AS userPic,
- postwithreaction.post_type AS type,
- postwithreaction.post_text, postwithreaction.post_media,
- postwithreaction.likes , postwithreaction.id AS id, 0 AS comments, postwithreaction.post_date AS date
- FROM postwithreaction, users
- WHERE users.id = postwithreaction.user_id 
+ postWithReaction.post_type AS type,
+ postWithReaction.post_text, postWithReaction.post_media,
+ postWithReaction.likes , postWithReaction.id AS id, 0 AS comments, postWithReaction.post_date AS date
+ FROM postWithReaction, users
+ WHERE users.id = postWithReaction.user_id 
  AND (
     /* get the posts from my followings */
     username IN (SELECT username FROM users WHERE id IN (
@@ -298,7 +298,7 @@ SELECT username, profile_pic AS userPic,
     /*OR
     /* get the posts from my old interactions (canceled)
     (
-        postwithreaction.id IN (
+        postWithReaction.id IN (
             SELECT post_id FROM posts WHERE user_id IN (
                 SELECT user_id FROM posts WHERE post_id IN (
                     SELECT post_id FROM interactions WHERE user_id = ?/* AND DAYOFYEAR(like_date) = DAYOFYEAR(NOW())
@@ -307,7 +307,7 @@ SELECT username, profile_pic AS userPic,
         )
     )*/
     OR /* select posts that my followings commented in */
-    postwithreaction.id IN (
+    postWithReaction.id IN (
         SELECT post_id FROM comments WHERE user_id IN (
             SELECT followin FROM follow WHERE follower=?
         )

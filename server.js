@@ -30,8 +30,8 @@ const http = require('http'),
     { promisify } = require('util');
 const watchFolder = promisify(fs.readdir);
 
-const adminServer = require('./lib/adminServer');
-const { createCMD } = adminServer;
+// const adminServer = require('./lib/adminServer');
+// const { createCMD } = adminServer;
 
 //const sharp = require('sharp');
 const pack = require('./package.json');
@@ -225,13 +225,13 @@ function notify(name, data, link, picture) {
 
 
 //admin server:
-adminServer.listen(port + 1, hostname);
+//adminServer.listen(port + 1, hostname);
 
-createCMD('Drop', 'Drops the whole server after closing all connections.', () => {
+/* createCMD('Drop', 'Drops the whole server after closing all connections.', () => {
     io.sockets.emit('error');
     io.close();
     server.close();
-    setTimeout(() => {
+   setTimeout(() => {
         adminServer.close();
         process.exit(1);
     }, 2000);
@@ -251,8 +251,8 @@ createCMD('show', 'Reads a specific variable from memory!', (name) => {
             break;
         default:
             break;
-    }
-});
+    
+});*/
 
 
 // app structure...
@@ -473,11 +473,11 @@ app.post('/report', (req, res) => {
         tools.error(error);
     } else {
         const username = Online.find(user => user.token === req.body.token).username;
-        AdminDB.all('INSERT INTO reports(username, postid, reportDate) VALUES(?, ?, ?);', [username, req.body.post, req.body.date], (err) => {
+        /*AdminDB.all('INSERT INTO reports(username, postid, reportDate) VALUES(?, ?, ?);', [username, req.body.post, req.body.date], (err) => {
             if (err) {
                 tools.error(err);
             }
-        });
+        });*/
         log(`Recieved a report from ${username}`, 'yellow');
         res.sendStatus(200);
     };
@@ -815,11 +815,11 @@ app.post('/signup', function (req, res) {
                             tools.error(err);
                         } else {
                             log(`A new Account was created by ${req.ip}(${req.body.user})`, 'green');
-                            AdminDB.all(query('saveToAdmin'), [req.body.user, req.headers['user-agent'], moment().format('YYYY-MMMM-Do hh:mm a'), req.ip], (err) => {
+                            /*AdminDB.all(query('saveToAdmin'), [req.body.user, req.headers['user-agent'], moment().format('YYYY-MMMM-Do hh:mm a'), req.ip], (err) => {
                                 if (err) {
                                     tools.error(err);
                                 };
-                            });
+                            });*/
                             notify(req.body.user, 'Welcome To ChatterBox!', '/about', req.body.user);
                             res.redirect('/login');
                         };
