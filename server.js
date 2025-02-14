@@ -98,7 +98,7 @@ const io = new socketIO.Server();
 log('IO Server Initialized');
 
 const db = mysql.createConnection({
-    host: '127.0.0.1',
+    host: process.env.DBHOST || '127.0.0.1',
     user: process.argv[2],
     password: process.env.DBPASS,
     database: 'chatterbox'
