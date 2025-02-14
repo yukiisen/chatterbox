@@ -1,0 +1,82 @@
+Fr February 14th 2025 - 11:05 Log Tool Ready...
+Fr February 14th 2025 - 11:05 IO Server Initialized
+Fr February 14th 2025 - 11:05 Main Server Listening at http://127.0.0.1:8080/
+Fr February 14th 2025 - 11:05 IO Server Listening at ws://127.0.0.1:8080/
+Fr February 14th 2025 - 11:05 Initializing SQL Queries...
+Fr February 14th 2025 - 11:05 SQLite DataBase Connected...
+Fr February 14th 2025 - 11:05 Badwords Filter Ready...
+Fr February 14th 2025 - 11:05 MYSQL DataBase Connected...
+Fr February 14th 2025 - 11:05 Query Parser Ready...
+127.0.0.1 GET / http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /inbox http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /login http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /pics/avatar.png http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/main.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/home.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/login.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /pics/logo3.png http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/windows.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/recapatcha.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/login.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /fonts/ArbFONTS-Aref_Menna-Normal-1.ttf http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /fonts/Laziness.otf http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /media/m2.wav http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /media/m1.wav http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /media/m3.mp3 http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 POST /login http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /profile http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/main.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/home.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/profile.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/posts.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/dots-vertical-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/heart-alt-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/comment-circle-list-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/bookmark-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /uploads/yuki.jpeg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /socket.io.min.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/name.io.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/windows.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/posts.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/profile.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/image-pen-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/mail-alt-3-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/bell-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/users-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/user-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/circle-information-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/search-alt-2-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/arrow-down-to-square-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/insta.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /uploads/cover/yuki.jpg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /fonts/ArbFONTS-Aref_Menna-Normal-1.ttf http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 POST /profile http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /profile http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/main.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/home.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/profile.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/posts.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/dots-vertical-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/heart-alt-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/comment-circle-list-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/bookmark-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /uploads/yuki.jpeg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/mail-alt-3-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/bell-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/users-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /socket.io.min.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/user-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/circle-information-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/name.io.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/windows.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/posts.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /scripts/profile.js http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/image-pen-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/arrow-down-to-square-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/search-alt-2-svgrepo-com.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /svg/insta.svg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /uploads/cover/yuki.jpg http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/main.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/home.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /styles/posts.css http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+127.0.0.1 GET /socket.io.min.js.map http 1.1  Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
