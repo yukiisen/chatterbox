@@ -21,7 +21,7 @@ The login screen:
 
 
 The profile Page:
-<img src="https://github.com/yukiisen/chatterbox/blob/main/profile.png?raw=true" />
+<img src="https://raw.githubusercontent.com/yukiisen/chatterbox/refs/heads/main/profile.png" />
 
 **remark:** These are the prototypes I made at first when I started the project.
 **another remark:** i was about to cancel programing when I opened the ```server.js``` file to run the server.
