@@ -97,12 +97,12 @@ SQLParser.initialize('./queries.sql', () => {
 const io = new socketIO.Server();
 log('IO Server Initialized');
 
-const db = mysql.createConnection(/* {
+const db = mysql.createConnection({
     host: process.env.DBHOST || '127.0.0.1',
     user: process.argv[2],
     password: process.env.DBPASS,
     database: 'chatterbox',
-} */process.env.MYSQL_URL_VAR);
+});
 
 db.query("SELECT 'ahmad';", (err) => {
     if (err) throw err;
