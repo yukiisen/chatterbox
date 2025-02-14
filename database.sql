@@ -1,4 +1,5 @@
--- Active: 1737137809733@@127.0.0.1@3306@chatterbox
+-- Active: 1739556100105@@junction.proxy.rlwy.net@25496@chatterbox
+
 DROP DATABASE chatterbox;
 CREATE DATABASE IF NOT EXISTS chatterbox;
 
@@ -26,18 +27,18 @@ CREATE TABLE IF NOT EXISTS chats(
     FOREIGN KEY(chat_user2) REFERENCES users(id)
 ) AUTO_INCREMENT=10001;
 
-CREATE TABLE IF NOT EXISTS groups(
-    group_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    group_name VARCHAR(20) NOT NULL DEFAULT 'Group',
-    group_pic VARCHAR(20) DEFAULT 'group_def.png',
-    PRIMARY KEY(group_id)
-) AUTO_INCREMENT=10001;
+CREATE TABLE IF NOT EXISTS `groups` (
+    group_id INT AUTO_INCREMENT NOT NULL,
+    group_name VARCHAR(20) NOT NULL DEFAULT 'group',
+    group_pic VARCHAR(30) NOT NULL DEFAULT 'group_def.png',
+    PRIMARY KEY (group_id)
+) AUTO_INCREMENT = 10001;
 
-CREATE TABLE IF NOT EXISTS group_members(
+CREATE TABLE IF NOT EXISTS group_members (
     group_id INT NOT NULL,
     user_id INT NOT NULL,
     auth BIT NOT NULL DEFAULT 0,
-    FOREIGN KEY(group_id) REFERENCES groups(group_id),
+    FOREIGN KEY(group_id) REFERENCES `groups`(group_id),
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
@@ -54,7 +55,7 @@ CREATE TABLE IF NOT EXISTS messages(
     PRIMARY KEY(message_id),
     FOREIGN KEY(sender_id) REFERENCES users(id),
     FOREIGN KEY(chat_id) REFERENCES chats(chat_id),
-    FOREIGN KEY(group_id) REFERENCES groups(group_id)
+    FOREIGN KEY(group_id) REFERENCES `groups`(group_id)
 );
 
 CREATE TABLE IF NOT EXISTS file_access(
