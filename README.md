@@ -45,7 +45,7 @@ install dependencies:
 npm install
 ```
 
-install and run a mysql server.
+install and run a `mariadb` or `mysql` server.
 
 run the database init file (use a MySQL client tool or the default CLI):
 ```
@@ -79,13 +79,13 @@ sudo node server.js DBusername host?
 I made this shit on windows 7 service pack 0 so It'll definitely work on a piece of cake.
 
 Requires:
-NodeJs: ```12.x.x```
-MySQL server: ```5.x.x```
-
+NodeJs: `12.x.x`
+MySQL server: `5.x.x`
+MariaDB server: `any`
 +30 years lifespan.
 And strong heart so you don't log out of life after seeing the code.
 
 **NOTE:**
-You may enounter some issues with the ```mysql``` module, I've already included the ```mysql2``` module in the ```package.json``` but you'll need to do a lots of tweakings just to run it normally (just override the ```db.query``` function)
+The `node-mysql` module doesn't support the newest Mysql (> 5.x.x) protocols so you must either change to `mysql2` or use mariaDB instead.
 
-Check My twitter on: [notarchivist](https://x.com/notarchivist)
+I regret writing this horrible code every single day BTW..
