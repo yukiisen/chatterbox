@@ -79,11 +79,11 @@ sudo node server.js DBusername host?
 I made this shit on windows 7 service pack 0 so It'll definitely work on a piece of cake.
 
 Requires:
-NodeJs: `12.x.x`
-MySQL server: `5.x.x`
-MariaDB server: `any`
-+30 years lifespan.
-And strong heart so you don't log out of life after seeing the code.
+- NodeJs: `12.x.x`
+- MySQL server: `5.x.x`
+- MariaDB server: `any`
+- +30 years lifespan.
+- a strong heart so you don't log out of life after seeing the code.
 
 **NOTE:**
 The `node-mysql` module doesn't support the newest Mysql (> 5.x.x) protocols so you must either change to `mysql2` or use mariaDB instead.
